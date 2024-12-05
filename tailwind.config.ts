@@ -181,16 +181,16 @@ const config: Config = {
 			brandLinear: '#868CFF',
 			transparent: 'transparent',
 			gray: {
-				50: '#F5F6FA',
-				100: '#EEF0F6',
-				200: '#DADEEC',
-				300: '#C9D0E3',
-				400: '#B0BBD5',
-				500: '#B5BED9',
-				600: '#A3AED0',
-				700: '#707eae',
-				800: '#2D396B',
-				900: '#1B2559'
+				50: '#f9fafb',
+				100: '#f3f4f6',
+				200: '#e5e7eb',
+				300: '#d1d5db',
+				400: '#9ca3af',
+				500: '#6b7280',
+				600: '#4b5563',
+				700: '#374151',
+				800: '#1f2937',
+				900: '#111827'
 			},
 			navy: {
 				50: '#d0dcfb',
