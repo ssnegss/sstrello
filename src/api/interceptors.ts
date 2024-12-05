@@ -5,6 +5,7 @@ import {
 	getAccessToken,
 	removeFromStorage
 } from '@/services/auth-token.service';
+import { authService } from '@/services/auth.service';
 
 const options: CreateAxiosDefaults = {
 	baseURL: process.env.BASE_URL,
