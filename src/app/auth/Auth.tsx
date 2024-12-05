@@ -17,7 +17,7 @@ export const Auth = () => {
 		mode: 'onChange'
 	});
 
-	const [isLoginForm, setIsLoginForm] = useState<boolean>(false);
+	const [isLoginForm, setIsLoginForm] = useState(false);
 
 	const { push } = useRouter();
 
@@ -26,9 +26,12 @@ export const Auth = () => {
 		mutationFn: (data: IAuthForm) =>
 			authService.main(isLoginForm ? 'login' : 'register', data),
 		onSuccess() {
-			toast.success('Successful login!');
+			toast.success('Successfully login!');
 			reset();
 			push(DASHBOARD_PAGES.HOME);
+		},
+		onError() {
+			toast.error('An error occurred!');
 		}
 	});
 
@@ -59,18 +62,19 @@ export const Auth = () => {
 						<div>
 							<label
 								htmlFor='email'
-								className='block text-sm/6 font-medium text-gray-200'
+								className='block text-xs font-medium text-gray-200'
 							>
-								Email address
+								Email:
 							</label>
 							<div className='mt-2'>
 								<input
 									type='email'
-									name='email'
 									id='email'
 									autoComplete='email'
+									placeholder='Enter Email'
 									required
-									className='block w-full rounded-md bg-gray-800 px-3 py-1.5 text-base text-gray-200 outline outline-1 -outline-offset-1 outline-gray-600 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6'
+									{...register('email', { required: 'Email is required!' })}
+									className='block w-full rounded-md bg-gray-800 px-3 py-1.5 text-base text-gray-200 outline outline-1 -outline-offset-1 outline-gray-600 placeholder:text-gray-500 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-xs'
 								/>
 							</div>
 						</div>
@@ -78,11 +82,11 @@ export const Auth = () => {
 							<div className='flex items-center justify-between'>
 								<label
 									htmlFor='password'
-									className='block text-sm/6 font-medium text-gray-200'
+									className='block text-xs font-medium text-gray-200'
 								>
 									Password
 								</label>
-								<div className='text-sm'>
+								<div className='text-xs'>
 									<a
 										href='#'
 										className='font-semibold text-indigo-600 hover:text-indigo-500'
@@ -94,27 +98,32 @@ export const Auth = () => {
 							<div className='mt-2'>
 								<input
 									type='password'
-									name='password'
 									id='password'
 									autoComplete='current-password'
+									placeholder='Enter password'
 									required
-									className='block w-full rounded-md bg-gray-800 px-3 py-1.5 text-base text-gray-200 outline outline-1 -outline-offset-1 outline-gray-600 placeholder:text-gray-400 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-sm/6'
+									{...register('password', { required: 'Email is required!' })}
+									className='block w-full rounded-md bg-gray-800 px-3 py-1.5 text-base text-gray-200 outline outline-1 -outline-offset-1 outline-gray-600 placeholder:text-gray-500 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-xs'
 								/>
 							</div>
 						</div>
 						<div>
 							<button
 								type='submit'
-								className='flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+								onClick={() => setIsLoginForm(true)}
+								className='flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-xs font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
 							>
 								Sign in
 							</button>
+							<button
+								type='submit'
+								onClick={() => setIsLoginForm(false)}
+								className='flex w-full justify-center rounded-md bg-indigo-600 px-3 py-1.5 text-xs font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600'
+							>
+								Register
+							</button>
 						</div>
 					</form>
-				</div>
-				<div className='flex items-center gap-5 justify-center'>
-					{/* <Button onClick={() => setIsLoginForm(true)}>Login</Button>
-					<Button onClick={() => setIsLoginForm(false)}>Register</Button> */}
 				</div>
 			</div>
 		</div>
