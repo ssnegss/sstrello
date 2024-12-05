@@ -1,19 +1,27 @@
 import type { IBase } from './root.types';
 
-export interface ITimerRoundResponse extends IBase {
+export interface ITimerRound extends IBase {
 	isCompleted?: boolean;
 	totalSeconds: number;
 }
 
-export interface ITimerSessionResponse extends IBase {
+export interface ITimerSession extends IBase {
 	isCompleted?: boolean;
-	rounds?: ITimerRoundResponse[];
+	rounds?: ITimerRound[];
 }
 
-export type TypeTimerSessionState = Partial<
-	Omit<ITimerSessionResponse, 'id' | 'createdAt' | 'updatedAt'>
+export type TypeTimerSession = Required<ITimerSession>;
+export type TypeTimerRound = Required<ITimerRound>;
+
+export type TypeTimerSessionCreate = Omit<
+	ITimerSession,
+	'id' | 'createdAt' | 'updatedAt'
 >;
 
-export type TypeTimerRoundState = Partial<
-	Omit<ITimerRoundResponse, 'id' | 'createdAt' | 'updatedAt'>
+export type TypeTimerSessionUpdate = Partial<
+	Omit<TypeTimerSession, 'id' | 'createdAt' | 'updatedAt'>
+>;
+
+export type TypeTimerRoundUpdate = Partial<
+	Omit<TypeTimerRound, 'id' | 'createdAt' | 'updatedAt'>
 >;

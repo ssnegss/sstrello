@@ -18,4 +18,6 @@ export interface IAuthResponse {
 	user: IUser
 }
 
+export type TAuth = 'login' | 'register'
+
 export type TypeUserForm = Omit<IUser, 'id'> & { password?: string }
