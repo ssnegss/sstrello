@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 	title: 'Tasks',
 	...NO_INDEX_PAGE
 };
-export default function DashboardPage() {
+export default function TasksPage() {
 	return (
 		<div>
 			<Heading title='Tasks' />

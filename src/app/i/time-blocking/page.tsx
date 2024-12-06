@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 	title: 'Time blocks',
 	...NO_INDEX_PAGE
 };
-export default function DashboardPage() {
+export default function TimeBlocksPage() {
 	return (
 		<div>
 			<Heading title='Time blocks' />

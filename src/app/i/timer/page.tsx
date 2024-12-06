@@ -8,7 +8,7 @@ export const metadata: Metadata = {
 	title: 'Pomodoro',
 	...NO_INDEX_PAGE
 };
-export default function DashboardPage() {
+export default function TimerPage() {
 	return (
 		<div>
 			<Heading title='Pomodoro' />
