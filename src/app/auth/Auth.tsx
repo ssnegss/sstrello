@@ -6,6 +6,8 @@ import { useState } from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 
+import { Field } from '@/components/ui/field/Field';
+
 import { IAuthForm } from '@/types/auth.types';
 
 import { DASHBOARD_PAGES } from '@/config/page-url.config';
@@ -59,54 +61,23 @@ export const Auth = () => {
 						method='POST'
 						onSubmit={handleSubmit(onSubmit)}
 					>
-						<div>
-							<label
-								htmlFor='email'
-								className='block text-xs font-medium text-gray-200'
-							>
-								Email:
-							</label>
-							<div className='mt-2'>
-								<input
-									type='email'
-									id='email'
-									autoComplete='email'
-									placeholder='Enter Email'
-									required
-									{...register('email', { required: 'Email is required!' })}
-									className='block w-full rounded-md bg-gray-800 px-3 py-1.5 text-base text-gray-200 outline outline-1 -outline-offset-1 outline-gray-600 placeholder:text-gray-500 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-xs'
-								/>
-							</div>
-						</div>
-						<div>
-							<div className='flex items-center justify-between'>
-								<label
-									htmlFor='password'
-									className='block text-xs font-medium text-gray-200'
-								>
-									Password
-								</label>
-								<div className='text-xs'>
-									<a
-										href='#'
-										className='font-semibold text-indigo-600 hover:text-indigo-500'
-									>
-										Forgot password?
-									</a>
-								</div>
-							</div>
-							<div className='mt-2'>
-								<input
-									type='password'
-									id='password'
-									autoComplete='current-password'
-									placeholder='Enter password'
-									required
-									{...register('password', { required: 'Email is required!' })}
-									className='block w-full rounded-md bg-gray-800 px-3 py-1.5 text-base text-gray-200 outline outline-1 -outline-offset-1 outline-gray-600 placeholder:text-gray-500 focus:outline focus:outline-2 focus:-outline-offset-2 focus:outline-indigo-600 sm:text-xs'
-								/>
-							</div>
-						</div>
+						<Field
+							type='email'
+							id='email'
+							autoComplete='email'
+							placeholder='Enter Email'
+							label='Email:'
+							{...register('email', { required: 'Email is required!' })}
+						/>
+						<Field
+							type='password'
+							id='password'
+							autoComplete='password'
+							placeholder='Enter Password'
+							label='Password:'
+							isPassword={true}
+							{...register('password', { required: 'Password is required!' })}
+						/>
 						<div>
 							<button
 								type='submit'
