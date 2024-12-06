@@ -1,11 +1,15 @@
-import { forwardRef } from 'react';
+import {
+	HTMLInputAutoCompleteAttribute,
+	HTMLInputTypeAttribute,
+	forwardRef
+} from 'react';
 
 interface IFieldProps {
 	label?: string;
-	type: string;
+	type: HTMLInputTypeAttribute;
 	name: string;
 	id: string;
-	autoComplete?: string;
+	autoComplete?: HTMLInputAutoCompleteAttribute;
 	placeholder?: string;
 	isRequired?: boolean;
 	disabled?: boolean;
@@ -20,7 +24,7 @@ export const Field = forwardRef<HTMLInputElement, IFieldProps>(
 			type,
 			id,
 			name,
-			autoComplete = '',
+			autoComplete = 'on',
 			placeholder = '',
 			isRequired = true,
 			disabled = false,
@@ -31,7 +35,7 @@ export const Field = forwardRef<HTMLInputElement, IFieldProps>(
 		ref
 	) => {
 		return (
-			<div>
+			<div className='mb-5'>
 				<div className='flex items-center justify-between'>
 					<label
 						htmlFor={id}
@@ -48,9 +52,7 @@ export const Field = forwardRef<HTMLInputElement, IFieldProps>(
 								Forgot password?
 							</a>
 						</div>
-					) : (
-						''
-					)}
+					) : null}
 				</div>
 				<div className='mt-2'>
 					<input
