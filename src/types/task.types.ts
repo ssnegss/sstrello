@@ -16,6 +16,4 @@ export type TypeTask = Required<ITask>;
 
 export type TypeTaskCreate = Omit<ITask, 'id' | 'createdAt' | 'updatedAt'>;
 
-export type TypeTaskUpdate = Partial<
-	Omit<TypeTask, 'id' | 'createdAt' | 'updatedAt'>
->;
+export type TypeTaskUpdate = Partial<Omit<TypeTask, 'id' | 'updatedAt'>>;
