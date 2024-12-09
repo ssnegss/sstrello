@@ -17,7 +17,7 @@ import styles from './ListView.module.scss';
 
 interface IListRow {
 	item: ITask;
-	setItems: Dispatch<SetStateAction<ITask[]>>;
+	setItems: Dispatch<SetStateAction<ITask[] | undefined>>;
 }
 
 export const ListRow = ({ item, setItems }: IListRow) => {
