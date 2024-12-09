@@ -2,7 +2,7 @@
 
 import { SubmitHandler, useForm } from 'react-hook-form';
 
-import { Button } from '@/components/ui/button/Button';
+import { Button } from '@/components/ui/Button';
 import { Field } from '@/components/ui/field/Field';
 
 import { TypeUserForm } from '@/types/auth.types';

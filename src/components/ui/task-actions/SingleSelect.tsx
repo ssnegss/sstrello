@@ -14,7 +14,7 @@ interface ISingleSelect {
 	data: IOption[];
 	onChange: (value: string) => void;
 	value: string;
-	isColorSelected: boolean;
+	isColorSelected?: boolean;
 }
 
 export const SingleSelect = ({
