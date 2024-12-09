@@ -15,7 +15,7 @@ export function useTasks() {
 
 	useEffect(() => {
 		setItems(data?.data);
-	}, data?.data);
+	}, [data?.data]);
 
 	return { items, setItems };
 }
