@@ -3,7 +3,7 @@ import { DropResult } from '@hello-pangea/dnd';
 import { useUpdateTask } from './useUpdateTask';
 import { FILTERS } from '@/app/data/columns.data';
 
-export function useTaskDnd() {
+export const useTaskDnd = () => {
 	const { updateTask } = useUpdateTask();
 
 	const onDragEnd = (result: DropResult) => {
@@ -36,4 +36,4 @@ export function useTaskDnd() {
 	};
 
 	return { onDragEnd };
-}
+};

@@ -5,7 +5,7 @@ import { ITask } from '@/types/task.types';
 
 import { taskService } from '@/services/task.service';
 
-export function useTasks() {
+export const useTasks = () => {
 	const { data } = useQuery({
 		queryKey: ['tasks'],
 		queryFn: () => taskService.getAllTasks()
@@ -18,4 +18,4 @@ export function useTasks() {
 	}, [data?.data]);
 
 	return { items, setItems };
-}
+};

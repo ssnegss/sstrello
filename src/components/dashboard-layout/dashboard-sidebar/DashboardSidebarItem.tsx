@@ -2,7 +2,7 @@ import Link from 'next/link';
 
 import { IMenuItem } from '@/types/menu.interface';
 
-export function DashboardSidebarItem({ item }: { item: IMenuItem }) {
+export const DashboardSidebarItem = ({ item }: { item: IMenuItem }) => {
 	return (
 		<div>
 			<Link
@@ -14,4 +14,4 @@ export function DashboardSidebarItem({ item }: { item: IMenuItem }) {
 			</Link>
 		</div>
 	);
-}
+};

@@ -8,7 +8,7 @@ import { COLORS } from '@/constants/color.constants';
 import { DashboardSidebarItem } from './DashboardSidebarItem';
 import { MENU } from '@/app/data/menu.data';
 
-export function DashboardSidebar() {
+export const DashboardSidebar = () => {
 	return (
 		<aside className='border-r border-r-border h-full bg-sidebar flex flex-col justify-between'>
 			<div>
@@ -51,4 +51,4 @@ export function DashboardSidebar() {
 			</footer>
 		</aside>
 	);
-}
+};

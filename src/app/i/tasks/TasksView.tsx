@@ -10,7 +10,7 @@ import { ListView } from './list-view/ListView';
 
 export type TypeView = 'list' | 'kanban';
 
-export function TasksView() {
+export const TasksView = () => {
 	const [type, setType, isLoading] = useLocalStorage<TypeView>({
 		key: 'view-type',
 		defaultValue: 'list'
@@ -27,4 +27,4 @@ export function TasksView() {
 			{type === 'list' ? <ListView /> : <KanbanView />}
 		</div>
 	);
-}
+};

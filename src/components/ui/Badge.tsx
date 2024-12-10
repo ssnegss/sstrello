@@ -22,12 +22,12 @@ const badge = tv({
 	}
 });
 
-export function Badge({
+export const Badge = ({
 	children,
 	className,
 	variant,
 	style
-}: PropsWithChildren<IBadge>) {
+}: PropsWithChildren<IBadge>) => {
 	return (
 		<span
 			className={badge({
@@ -39,4 +39,4 @@ export function Badge({
 			{children}
 		</span>
 	);
-}
+};

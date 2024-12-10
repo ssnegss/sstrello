@@ -1,5 +1,3 @@
-'use client';
-
 import { DragDropContext } from '@hello-pangea/dnd';
 
 import { useTaskDnd } from '../hooks/useTaskDnd';
@@ -9,7 +7,7 @@ import { ListRowParent } from './ListRowParent';
 import styles from './ListView.module.scss';
 import { COLUMNS } from '@/app/data/columns.data';
 
-export function ListView() {
+export const ListView = () => {
 	const { items, setItems } = useTasks();
 	const { onDragEnd } = useTaskDnd();
 
@@ -37,4 +35,4 @@ export function ListView() {
 			</div>
 		</DragDropContext>
 	);
-}
+};

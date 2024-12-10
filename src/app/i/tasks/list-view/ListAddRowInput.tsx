@@ -9,7 +9,7 @@ interface IListAddRowInput {
 	setItems: Dispatch<SetStateAction<ITask[] | undefined>>;
 }
 
-export function ListAddRowInput({ setItems, filterDate }: IListAddRowInput) {
+export const ListAddRowInput = ({ setItems, filterDate }: IListAddRowInput) => {
 	const addRow = () => {
 		setItems(prev => {
 			if (!prev) return;
@@ -36,4 +36,4 @@ export function ListAddRowInput({ setItems, filterDate }: IListAddRowInput) {
 			</button>
 		</div>
 	);
-}
+};

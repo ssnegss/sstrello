@@ -1,11 +1,9 @@
 import type { PropsWithChildren } from 'react';
 
-import DashboardHeader from './dashboard-header/DashboardHeader';
+import { DashboardHeader } from './dashboard-header/DashboardHeader';
 import { DashboardSidebar } from './dashboard-sidebar/DashboardSidebar';
 
-export default function DashboardLayout({
-	children
-}: PropsWithChildren<unknown>) {
+export const DashboardLayout = ({ children }: PropsWithChildren<unknown>) => {
 	return (
 		<div className='grid min-h-screen 2xl:grid-cols-[1.1fr_6fr] grid-cols-[1.2fr_6fr]'>
 			<DashboardSidebar />
@@ -16,4 +14,4 @@ export default function DashboardLayout({
 			</main>
 		</div>
 	);
-}
+};

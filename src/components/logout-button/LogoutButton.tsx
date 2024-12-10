@@ -6,7 +6,7 @@ import { useRouter } from 'next/navigation';
 
 import { authService } from '@/services/auth.service';
 
-export function LogoutButton() {
+export const LogoutButton = () => {
 	const router = useRouter();
 
 	const { mutate } = useMutation({
@@ -25,4 +25,4 @@ export function LogoutButton() {
 			</button>
 		</div>
 	);
-}
+};

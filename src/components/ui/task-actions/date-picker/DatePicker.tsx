@@ -19,11 +19,11 @@ interface IDatePicker {
 	position?: 'left' | 'right';
 }
 
-export function DatePicker({
+export const DatePicker = ({
 	onChange,
 	value,
 	position = 'right'
-}: IDatePicker) {
+}: IDatePicker) => {
 	const [selected, setSelected] = useState<Date>();
 	const { isShown, setIsShown, ref } = useOutside(false);
 
@@ -80,4 +80,4 @@ export function DatePicker({
 			)}
 		</div>
 	);
-}
+};

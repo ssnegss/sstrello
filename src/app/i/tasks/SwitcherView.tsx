@@ -10,7 +10,7 @@ interface ISwitcherView {
 	setType: (value: TypeView) => void;
 }
 
-export function SwitcherView({ setType, type }: ISwitcherView) {
+export const SwitcherView = ({ setType, type }: ISwitcherView) => {
 	return (
 		<div className='flex items-center gap-4 mb-5'>
 			<button
@@ -33,4 +33,4 @@ export function SwitcherView({ setType, type }: ISwitcherView) {
 			</button>
 		</div>
 	);
-}
+};

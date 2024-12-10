@@ -6,7 +6,7 @@ import {
 
 import { axiosWithAuth } from '@/api/interceptors';
 
-class TimeBlock {
+class TimeBlockService {
 	private BASE_URL = 'user/time-blocks';
 
 	async getAllTimeBlocks() {
@@ -38,4 +38,4 @@ class TimeBlock {
 	}
 }
 
-export const timeBlock = new TimeBlock();
+export const timeBlockService = new TimeBlockService();

@@ -2,7 +2,7 @@ import { Loader } from '@/components/ui/Loader';
 
 import { useProfile } from '@/hooks/useProfile';
 
-export default function DashboardProfile() {
+export const DashboardProfile = () => {
 	const { data, isLoading } = useProfile();
 	return (
 		<div className='absolute top-big-layout right-big-layout'>
@@ -22,4 +22,4 @@ export default function DashboardProfile() {
 			)}
 		</div>
 	);
-}
+};

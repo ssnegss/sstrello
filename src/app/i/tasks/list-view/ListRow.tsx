@@ -3,7 +3,7 @@ import { GripVertical, Loader, Trash } from 'lucide-react';
 import type { Dispatch, SetStateAction } from 'react';
 import { Controller, useForm } from 'react-hook-form';
 
-import Checkbox from '@/components/ui/Checkbox';
+import { Checkbox } from '@/components/ui/Checkbox';
 import { TransparentField } from '@/components/ui/field/TransparentField';
 import { SingleSelect } from '@/components/ui/task-actions/SingleSelect';
 import { DatePicker } from '@/components/ui/task-actions/date-picker/DatePicker';

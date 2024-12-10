@@ -7,10 +7,10 @@ interface IKanbanAddCardInput {
 	setItems: Dispatch<SetStateAction<ITask[] | undefined>>;
 }
 
-export function KanbanAddCardInput({
+export const KanbanAddCardInput = ({
 	setItems,
 	filterDate
-}: IKanbanAddCardInput) {
+}: IKanbanAddCardInput) => {
 	const addCard = () => {
 		setItems(prev => {
 			if (!prev) return;
@@ -37,4 +37,4 @@ export function KanbanAddCardInput({
 			</button>
 		</div>
 	);
-}
+};

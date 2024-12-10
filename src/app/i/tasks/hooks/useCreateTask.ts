@@ -4,7 +4,7 @@ import { TypeTaskCreate } from '@/types/task.types';
 
 import { taskService } from '@/services/task.service';
 
-export function useCreateTask() {
+export const useCreateTask = () => {
 	const queryClient = useQueryClient();
 
 	const { mutate: createTask } = useMutation({
@@ -18,4 +18,4 @@ export function useCreateTask() {
 	});
 
 	return { createTask };
-}
+};

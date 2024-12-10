@@ -1,5 +1,3 @@
-'use client';
-
 import { DragDropContext } from '@hello-pangea/dnd';
 
 import { useTaskDnd } from '../hooks/useTaskDnd';
@@ -9,7 +7,7 @@ import { KanbanColumn } from './KanbanColumn';
 import styles from './KanbanView.module.scss';
 import { COLUMNS } from '@/app/data/columns.data';
 
-export function KanbanView() {
+export const KanbanView = () => {
 	const { items, setItems } = useTasks();
 	const { onDragEnd } = useTaskDnd();
 
@@ -28,4 +26,4 @@ export function KanbanView() {
 			</div>
 		</DragDropContext>
 	);
-}
+};
