@@ -64,7 +64,7 @@ export const TimeBlockingForm = () => {
 				placeholder='Enter duration (min.):'
 				isNumber
 			/>
-			<div>
+			<div className='mb-6'>
 				<span className='inline-block mb-1.5'>Color:</span>
 				<Controller
 					control={control}
