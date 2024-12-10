@@ -1,0 +1,61 @@
+.table {
+	@apply w-full;
+
+	.header {
+		@apply grid grid-cols-[1.4fr_.4fr_.4fr_.1fr];
+	}
+
+	.header,
+	.parentsWrapper .row,
+	.parentsWrapper .colHeading {
+		@apply rounded border-t border-border text-left w-auto whitespace-nowrap;
+
+		> div {
+			@apply border-r border-border py-2 px-4;
+
+			&:last-child {
+				@apply border-0;
+			}
+		}
+	}
+
+	.parentsWrapper {
+		.colHeading {
+			@apply hover:bg-transparent;
+			background-color: #0e0f0f;
+
+			> div {
+				@apply font-semibold text-xl py-3;
+			}
+		}
+
+		.addRow {
+			@apply py-2 px-4 border-t border-border;
+		}
+
+		.row {
+			@apply font-normal grid grid-cols-[1.4fr_.4fr_.4fr_.1fr] relative;
+
+			&.completed {
+				> div > span > input {
+					@apply italic line-through opacity-50;
+				}
+			}
+
+			&:hover {
+				@apply bg-[#1c1f1f];
+			}
+
+			> div > span {
+				.grip {
+					@apply opacity-20 transition-opacity -ml-3 -mr-1;
+
+					&:hover,
+					&:active {
+						@apply opacity-100;
+					}
+				}
+			}
+		}
+	}
+}
