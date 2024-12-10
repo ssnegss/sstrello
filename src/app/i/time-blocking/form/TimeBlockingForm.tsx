@@ -26,7 +26,6 @@ export const TimeBlockingForm = () => {
 		if (id) {
 			updateTimeBlock({ id, data: dto });
 		} else {
-			// TODO: check types
 			createTimeBlock(dto);
 		}
 

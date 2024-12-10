@@ -2,14 +2,14 @@ import debounce from 'lodash.debounce';
 import { useCallback, useEffect } from 'react';
 import { UseFormWatch } from 'react-hook-form';
 
-import type { TypeTaskCreate, TypeTaskUpdate } from '@/types/task.types';
+import type { TypeTaskUpdate } from '@/types/task.types';
 
 import { useCreateTask } from './useCreateTask';
 import { useUpdateTask } from './useUpdateTask';
 
 interface IUseTaskDebounce {
 	itemId: string;
-	watch: UseFormWatch<TypeTaskCreate | TypeTaskUpdate>;
+	watch: UseFormWatch<TypeTaskUpdate>;
 }
 
 export const useTaskDebounce = ({ itemId, watch }: IUseTaskDebounce) => {
@@ -17,7 +17,7 @@ export const useTaskDebounce = ({ itemId, watch }: IUseTaskDebounce) => {
 	const { updateTask } = useUpdateTask();
 
 	const debounceCreateTask = useCallback(
-		debounce((formData: TypeTaskCreate) => {
+		debounce((formData: TypeTaskUpdate) => {
 			createTask(formData);
 		}, 444),
 		[]
@@ -39,7 +39,6 @@ export const useTaskDebounce = ({ itemId, watch }: IUseTaskDebounce) => {
 				});
 			} else {
 				if (formData.name) {
-					// TODO: check types
 					debounceCreateTask(formData);
 				}
 			}

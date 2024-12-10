@@ -10,8 +10,8 @@ class TaskService {
 		return response;
 	}
 
-	async createTask(data: TypeTaskCreate) {
-		const response = await axiosWithAuth.post<TypeTaskCreate>(
+	async createTask(data: TypeTaskUpdate) {
+		const response = await axiosWithAuth.post<TypeTaskUpdate>(
 			this.BASE_URL,
 			data
 		);

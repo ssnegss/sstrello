@@ -1,6 +1,5 @@
 import {
 	TypeTimeBlock,
-	TypeTimeBlockCreate,
 	TypeTimeBlockUpdate
 } from '@/types/time-block.types';
 
@@ -14,7 +13,7 @@ class TimeBlockService {
 		return response;
 	}
 
-	async createTimeBlock(data: TypeTimeBlockCreate) {
+	async createTimeBlock(data: TypeTimeBlockUpdate) {
 		const response = await axiosWithAuth.post(this.BASE_URL, data);
 		return response;
 	}

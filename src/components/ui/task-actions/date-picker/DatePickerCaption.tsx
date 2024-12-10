@@ -19,7 +19,7 @@ const getSeason = (month: Date): keyof typeof seasonEmoji => {
 
 // TODO: fix types
 
-export const formatCaption: Formatters['formatCaption'] = (month: Date) => {
+export const formatCaption: any = (month: Date) => {
 	const season = getSeason(month);
 
 	return (

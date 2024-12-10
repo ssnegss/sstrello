@@ -1,6 +1,6 @@
 import { useMutation, useQueryClient } from '@tanstack/react-query';
 
-import { TypeTimeBlockCreate } from '@/types/time-block.types';
+import type { TypeTimeBlockUpdate } from '@/types/time-block.types';
 
 import { timeBlockService } from '@/services/time-block.service';
 
@@ -9,7 +9,7 @@ export const useCreateTimeBlock = () => {
 
 	const { mutate: createTimeBlock, isPending } = useMutation({
 		mutationKey: ['createTimeBlock'],
-		mutationFn: (data: TypeTimeBlockCreate) =>
+		mutationFn: (data: TypeTimeBlockUpdate) =>
 			timeBlockService.createTimeBlock(data),
 		onSuccess() {
 			queryClient.invalidateQueries({
