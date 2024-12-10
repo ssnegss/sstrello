@@ -5,7 +5,7 @@ import { timeBlockService } from '@/services/time-block.service';
 export const useDeleteTimeBlock = () => {
 	const queryClient = useQueryClient();
 
-	const { mutate: deleteTimeBlock, isPending } = useMutation({
+	const { mutate: deleteTimeBlock, isPending: isDeletePending } = useMutation({
 		mutationKey: ['deleteTimeBlock'],
 		mutationFn: (id: string) => timeBlockService.deleteTimeBlock(id),
 		onSuccess() {
@@ -15,5 +15,5 @@ export const useDeleteTimeBlock = () => {
 		}
 	});
 
-	return { deleteTimeBlock, isPending };
+	return { deleteTimeBlock, isDeletePending };
 };

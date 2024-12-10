@@ -5,7 +5,7 @@ import { TypeTimeBlock } from '@/types/time-block.types';
 
 import { timeBlockService } from '@/services/time-block.service';
 
-const useTimeBlocks = () => {
+export const useTimeBlocks = () => {
 	const { data, isLoading } = useQuery({
 		queryKey: ['timeBlocks'],
 		queryFn: () => timeBlockService.getAllTimeBlocks()

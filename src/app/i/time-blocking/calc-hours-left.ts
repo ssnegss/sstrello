@@ -8,5 +8,5 @@ export const calcHoursLeft = (items: TypeTimeBlock[] | undefined) => {
 
 	const hoursLeft = 24 - totalHours;
 
-	return {};
+	return { hoursLeft };
 };

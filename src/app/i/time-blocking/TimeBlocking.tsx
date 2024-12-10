@@ -2,6 +2,7 @@
 
 import { FormProvider, useForm } from 'react-hook-form';
 
+import { TimeBlockingList } from './TimeBlockingList';
 import { TimeBlockingForm } from './form/TimeBlockingForm';
 
 export const TimeBlocking = () => {
@@ -10,6 +11,7 @@ export const TimeBlocking = () => {
 	return (
 		<FormProvider {...methods}>
 			<div className='grid grid-cols-2 gap-12'>
+				<TimeBlockingList />
 				<TimeBlockingForm />
 			</div>
 		</FormProvider>
