@@ -15,5 +15,5 @@ export type TypeTimeBlockCreate = Omit<
 >;
 
 export type TypeTimeBlockUpdate = Partial<
-	Omit<TypeTimeBlock, 'id' | 'createdAt' | 'updatedAt'>
+	Omit<TypeTimeBlock, 'createdAt' | 'updatedAt'>
 >;
