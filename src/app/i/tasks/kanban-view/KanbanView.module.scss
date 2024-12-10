@@ -1,61 +1,59 @@
-.table {
-	@apply w-full;
+.board {
+	@apply grid grid-flow-col gap-8 w-full;
+	overflow-x: auto;
 
-	.header {
-		@apply grid grid-cols-[1.4fr_.4fr_.4fr_.1fr];
-	}
+	.column {
+		@apply w-[17rem];
+		white-space: nowrap;
+		min-height: 79vh;
 
-	.header,
-	.parentsWrapper .row,
-	.parentsWrapper .colHeading {
-		@apply rounded border-t border-border text-left w-auto whitespace-nowrap;
-
-		> div {
-			@apply border-r border-border py-2 px-4;
-
-			&:last-child {
-				@apply border-0;
-			}
-		}
-	}
-
-	.parentsWrapper {
-		.colHeading {
-			@apply hover:bg-transparent;
-			background-color: #0e0f0f;
-
-			> div {
-				@apply font-semibold text-xl py-3;
-			}
-		}
-
-		.addRow {
-			@apply py-2 px-4 border-t border-border;
-		}
-
-		.row {
-			@apply font-normal grid grid-cols-[1.4fr_.4fr_.4fr_.1fr] relative;
+		.card {
+			@apply rounded border border-border mt-5 p-4 relative bg-[#0e0f0f];
 
 			&.completed {
-				> div > span > input {
-					@apply italic line-through opacity-50;
+				@apply italic line-through opacity-50;
+			}
+
+			.cardHeader {
+				@apply flex items-center mb-2;
+				font-size: 93%;
+
+				> input:last-child {
+					@apply ml-2;
 				}
 			}
 
-			&:hover {
-				@apply bg-[#1c1f1f];
+			.cardBody,
+			.cardBody > div > button > span,
+			.cardBody > div > div > button > span {
+				font-size: 83%;
 			}
 
-			> div > span {
-				.grip {
-					@apply opacity-20 transition-opacity -ml-3 -mr-1;
+			.cardBody {
+				> div {
+					@apply mb-2.5 w-max;
+					min-width: 6rem;
 
-					&:hover,
-					&:active {
-						@apply opacity-100;
+					> button:last-child {
+						@apply opacity-15;
 					}
 				}
 			}
+
+			.cardActions {
+				@apply absolute bottom-1 right-1.5 opacity-40;
+			}
+		}
+	}
+}
+
+.grip {
+	@apply opacity-20 transition-opacity -ml-1 -mr-0.5 absolute top-2 right-1.5;
+
+	&:hover,
+	&:active {
+		.grip {
+			@apply opacity-100;
 		}
 	}
 }

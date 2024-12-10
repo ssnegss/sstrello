@@ -38,32 +38,33 @@ export const KanbanCard = ({ item, setItems }: IKanbanCard) => {
 	return (
 		<div
 			className={cn(
-				styles.row,
-				watch('isCompleted') ? styles.completed : '',
+				styles.card,
+				{
+					[styles.completed]: watch('isCompleted')
+				},
 				'animation-opacity'
 			)}
 		>
-			<div>
-				<span className='inline-flex items-center gap-2.5 w-full'>
-					<button aria-describedby='todo-item'>
-						<GripVertical className={styles.grip} />
-					</button>
+			<div className={styles.cardHeader}>
+				<button aria-describedby='todo-item'>
+					<GripVertical className={styles.grip} />
+				</button>
 
-					<Controller
-						control={control}
-						name='isCompleted'
-						render={({ field: { value, onChange } }) => (
-							<Checkbox
-								onChange={onChange}
-								checked={value}
-							/>
-						)}
-					/>
+				<Controller
+					control={control}
+					name='isCompleted'
+					render={({ field: { value, onChange } }) => (
+						<Checkbox
+							onChange={onChange}
+							checked={value}
+						/>
+					)}
+				/>
 
-					<TransparentField {...register('name')} />
-				</span>
+				<TransparentField {...register('name')} />
 			</div>
-			<div>
+
+			<div className={styles.cardBody}>
 				<Controller
 					control={control}
 					name='createdAt'
@@ -71,17 +72,17 @@ export const KanbanCard = ({ item, setItems }: IKanbanCard) => {
 						<DatePicker
 							onChange={onChange}
 							value={value || ''}
+							position='left'
 						/>
 					)}
 				/>
-			</div>
-			<div className='capitalize'>
+
 				<Controller
 					control={control}
 					name='priority'
 					render={({ field: { value, onChange } }) => (
 						<SingleSelect
-							data={priorities.map(item => ({
+							data={['high', 'medium', 'low'].map(item => ({
 								value: item,
 								label: item
 							}))}
@@ -91,7 +92,8 @@ export const KanbanCard = ({ item, setItems }: IKanbanCard) => {
 					)}
 				/>
 			</div>
-			<div>
+
+			<div className={styles.cardActions}>
 				<button
 					onClick={() =>
 						item.id ? deleteTask(item.id) : setItems(prev => prev?.slice(0, -1))
