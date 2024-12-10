@@ -8,7 +8,7 @@ import {
 import { authService } from '@/services/auth.service';
 
 const options: CreateAxiosDefaults = {
-	baseURL: 'http://localhost:4200/api',
+	baseURL: process.env.NEXT_PUBLIC_BASE_URL,
 	headers: {
 		'Content-Type': 'application/json'
 	},
