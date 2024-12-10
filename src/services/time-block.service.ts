@@ -1,5 +1,5 @@
 import {
-	ITimeBlock,
+	TypeTimeBlock,
 	TypeTimeBlockCreate,
 	TypeTimeBlockUpdate
 } from '@/types/time-block.types';
@@ -10,7 +10,7 @@ class TimeBlockService {
 	private BASE_URL = 'user/time-blocks';
 
 	async getAllTimeBlocks() {
-		const response = await axiosWithAuth.get<ITimeBlock[]>(this.BASE_URL);
+		const response = await axiosWithAuth.get<TypeTimeBlock[]>(this.BASE_URL);
 		return response;
 	}
 
