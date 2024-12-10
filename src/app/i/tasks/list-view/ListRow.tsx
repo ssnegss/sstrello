@@ -14,6 +14,7 @@ import { useDeleteTask } from '../hooks/useDeleteTask';
 import { useTaskDebounce } from '../hooks/useTaskDebounce';
 
 import styles from './ListView.module.scss';
+import { priorities } from '@/app/data/priorities.data';
 
 interface IListRow {
 	item: ITask;
@@ -21,8 +22,6 @@ interface IListRow {
 }
 
 export const ListRow = ({ item, setItems }: IListRow) => {
-	const priorities: string[] = ['high', 'medium', 'low'];
-
 	const { deleteTask, isDeletePending } = useDeleteTask();
 
 	const { register, control, watch } = useForm<TypeTaskUpdate>({

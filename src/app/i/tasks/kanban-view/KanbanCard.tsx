@@ -8,12 +8,13 @@ import { TransparentField } from '@/components/ui/field/TransparentField';
 import { SingleSelect } from '@/components/ui/task-actions/SingleSelect';
 import { DatePicker } from '@/components/ui/task-actions/date-picker/DatePicker';
 
-import type { ITask, TypeTaskUpdate } from '@/types/task.types';
+import { type ITask, type TypeTaskUpdate } from '@/types/task.types';
 
 import { useDeleteTask } from '../hooks/useDeleteTask';
 import { useTaskDebounce } from '../hooks/useTaskDebounce';
 
 import styles from './KanbanView.module.scss';
+import { priorities } from '@/app/data/priorities.data';
 
 interface IKanbanCard {
 	item: ITask;
@@ -21,8 +22,6 @@ interface IKanbanCard {
 }
 
 export const KanbanCard = ({ item, setItems }: IKanbanCard) => {
-	const priorities: string[] = ['high', 'medium', 'low'];
-
 	const { deleteTask, isDeletePending } = useDeleteTask();
 
 	const { register, control, watch } = useForm<TypeTaskUpdate>({
@@ -82,7 +81,7 @@ export const KanbanCard = ({ item, setItems }: IKanbanCard) => {
 					name='priority'
 					render={({ field: { value, onChange } }) => (
 						<SingleSelect
-							data={['high', 'medium', 'low'].map(item => ({
+							data={priorities.map(item => ({
 								value: item,
 								label: item
 							}))}
