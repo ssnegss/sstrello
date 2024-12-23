@@ -6,16 +6,20 @@ import { removeFromStorage, saveTokenStorage } from './auth-token.service';
 
 export const authService = {
 	async main(type: TAuth, data: IAuthForm) {
-		const response = await axiosClassic.post<IAuthResponse>(
-			`/auth/${type}`,
-			data
-		);
+		try {
+			const response = await axiosClassic.post<IAuthResponse>(
+				`/auth/${type}`,
+				data
+			);
 
-		if (response.data.accessToken) {
-			saveTokenStorage(response.data.accessToken);
+			if (response.data.accessToken) {
+				saveTokenStorage(response.data.accessToken);
+			}
+
+			return response;
+		} catch (e) {
+			console.error(e);
 		}
-
-		return response;
 	},
 
 	async getNewTokens() {
