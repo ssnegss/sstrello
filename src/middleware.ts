@@ -4,28 +4,28 @@ import { DASHBOARD_PAGES } from './config/page-url.config';
 import { EnumTokens } from './services/auth-token.service';
 
 export async function middleware(request: NextRequest, response: NextResponse) {
-	const { url, cookies } = request;
-	const refreshToken = cookies.get(EnumTokens.REFRESH_TOKEN)?.value;
-	const cookieHeader = request.headers.get('cookie');
+	// const { url, cookies } = request;
+	// const refreshToken = cookies.get(EnumTokens.REFRESH_TOKEN)?.value;
+	// const cookieHeader = request.headers.get('cookie');
 
-	console.log('Middleware: refreshToken from req.cookies:', refreshToken);
-    console.log('Middleware: All Cookies from req.headers:', cookieHeader);
+	// console.log('Middleware: refreshToken from req.cookies:', refreshToken);
+    // console.log('Middleware: All Cookies from req.headers:', cookieHeader);
 
-	const isAuthPage = url.includes('/auth');
+	// const isAuthPage = url.includes('/auth');
 
-	if (isAuthPage && refreshToken) {
-		return NextResponse.redirect(new URL(DASHBOARD_PAGES.HOME, url));
-	}
+	// if (isAuthPage && refreshToken) {
+	// 	return NextResponse.redirect(new URL(DASHBOARD_PAGES.HOME, url));
+	// }
 
-	if (isAuthPage) {
-		return NextResponse.next();
-	}
+	// if (isAuthPage) {
+	// 	return NextResponse.next();
+	// }
 
-	if (!refreshToken) {
-		return NextResponse.redirect(new URL('/auth', url));
-	}
+	// if (!refreshToken) {
+	// 	return NextResponse.redirect(new URL('/auth', url));
+	// }
 
-	return NextResponse.next();
+	// return NextResponse.next();
 }
 
 export const config = {
