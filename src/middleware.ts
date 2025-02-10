@@ -6,6 +6,10 @@ import { EnumTokens } from './services/auth-token.service';
 export async function middleware(request: NextRequest, response: NextResponse) {
 	const { url, cookies } = request;
 	const refreshToken = cookies.get(EnumTokens.REFRESH_TOKEN)?.value;
+	const cookieHeader = request.headers.get('cookie');
+
+	console.log('Middleware: refreshToken from req.cookies:', refreshToken);
+    console.log('Middleware: All Cookies from req.headers:', cookieHeader);
 
 	const isAuthPage = url.includes('/auth');
 
